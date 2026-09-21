@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Base de datos y licencia · Zas</title>
+<style>
+  :root { color-scheme: light; }
+  body { margin:0; background:#FAF8F5; color:#1B1A18;
+         font:17px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+  main { max-width:44rem; margin:0 auto; padding:3rem 1.5rem 5rem; }
+  h1 { font-size:2.1rem; line-height:1.2; margin:0 0 1.5rem; }
+  h2 { font-size:1.25rem; margin:2.4rem 0 .6rem; }
+  .clave { background:#DCF2E3; border-radius:14px; padding:1.1rem 1.3rem; margin:1.5rem 0; }
+  code { background:#F1EDE7; padding:.15rem .4rem; border-radius:6px; }
+  a { color:#1F6F5C; }
+  table { border-collapse:collapse; width:100%; margin:1rem 0; }
+  th, td { text-align:left; padding:.6rem .8rem; border-bottom:1px solid #E3DED6; }
+</style>
+</head>
+<body>
+<main>
+  <h1>La base de datos de «Zas»</h1>
+
+  <div class="clave">
+    La aplicación lleva dentro un extracto de <a href="https://openfoodfacts.org">Open Food Facts</a>.
+    Ese extracto es una <em>base de datos derivada</em> y se publica aquí bajo la misma licencia,
+    <a href="https://opendatacommons.org/licenses/odbl/1-0/">Open Database License (ODbL) v1.0</a>,
+    tal y como exigen sus cláusulas 4.4 y 4.6.
+  </div>
+
+  <h2>Qué contiene</h2>
+  <table>
+    <tr><th>Tabla</th><th>Contenido</th></tr>
+    <tr><td><code>producto</code></td><td>Productos con España entre sus países de venta: código, nombre, marca, cantidad, ingredientes, alérgenos, trazas, aditivos, categorías, etiquetas y análisis de ingredientes</td></tr>
+    <tr><td><code>aditivo</code></td><td>Números E con nombre, función, origen vegano/vegetariano y referencia de la EFSA cuando existe</td></tr>
+    <tr><td><code>alergeno</code></td><td>Alérgenos con sus sinónimos en español</td></tr>
+    <tr><td><code>marcador</code></td><td>Términos usados para reconocer ingredientes en una lista</td></tr>
+    <tr><td><code>meta</code></td><td>Versión de los datos, licencia y atribución</td></tr>
+  </table>
+
+  <h2>Qué se ha cambiado respecto al original</h2>
+  <p>
+    Se ha filtrado por país (España), se han conservado solo las columnas que usa la aplicación, se
+    han normalizado las etiquetas de aditivos al formato <code>e120</code> y se han descartado los
+    productos que no tienen ni nombre, ni ingredientes, ni alérgenos, ni aditivos. No se ha añadido,
+    estimado ni corregido ningún valor.
+  </p>
+
+  <h2>Descarga</h2>
+  <p>
+    El fichero <code>catalogo.db</code> (SQLite) y el programa que lo construye se publican en el
+    repositorio del proyecto. La versión empaquetada en cada release de la aplicación es la misma que
+    se publica aquí.
+  </p>
+
+  <h2>Atribución</h2>
+  <p>
+    Datos de Open Food Facts (<a href="https://openfoodfacts.org">openfoodfacts.org</a>), bajo
+    licencia ODbL 1.0. Los contenidos individuales están disponibles bajo la
+    <a href="https://opendatacommons.org/licenses/dbcl/1-0/">Database Contents License</a>.
+    Esta aplicación no incluye fotografías de producto.
+  </p>
+</main>
+</body>
+</html>
