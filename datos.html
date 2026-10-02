@@ -30,7 +30,7 @@
   </div>
 
   <h2>Qué contiene</h2>
-  <p>Actualizada el 2 de octubre de 2026 (versión 16 de la base).</p>
+  <p>Actualizada el 2 de octubre de 2026 (versión 17 de la base).</p>
   <table>
     <tr><th>Tabla</th><th>Contenido</th><th>De dónde sale</th></tr>
     <tr><td><code>producto</code></td><td>Productos con España entre sus países de venta: código, nombre, marca, cantidad, ingredientes, alérgenos, trazas, aditivos, categorías, etiquetas, análisis de ingredientes, valores nutricionales por 100 g y los demás nutrientes que declara el producto (minerales, vitaminas, cafeína, pH…)</td><td>Open Food Facts (ODbL 1.0)</td></tr>
@@ -41,6 +41,7 @@
     <tr><td><code>receta</code></td><td>Recetas propias y del recetario libre</td><td>Propias; Wikibooks (CC BY-SA 3.0)</td></tr>
     <tr><td><code>restriccion</code>, <code>advertencia</code></td><td>Restricciones que se pueden marcar y advertencias obligatorias</td><td>Reglamentos (UE) 1169/2011 y (CE) 1333/2008; taxonomías de Open Food Facts</td></tr>
     <tr><td><code>ejercicio</code></td><td>Ejercicios con sus fotos</td><td>free-exercise-db (dominio público, Unlicense)</td></tr>
+    <tr><td><code>medicamento</code>, <code>medicamento_cn</code></td><td>Medicamentos comercializados en España: nombre, laboratorio, receta, forma, vías, principios activos, excipientes (sección 6.1 de la ficha técnica, literal), excipientes con efecto conocido y origen (sección 2, literal) y el código nacional de cada caja</td><td>Agencia Española de Medicamentos y Productos Sanitarios, CIMA (<a href="https://www.aemps.gob.es">www.aemps.gob.es</a>); los autorizados en toda la UE, información de producto de la Agencia Europea de Medicamentos (<a href="https://www.ema.europa.eu">EMA</a>); sin ficha técnica, el prospecto. Fecha de obtención en <code>meta</code></td></tr>
     <tr><td><code>meta</code></td><td>Versión de los datos, licencia y atribución</td><td>—</td></tr>
   </table>
 
@@ -70,6 +71,12 @@
     La aplicación no lleva fotografías de producto dentro; si activas la búsqueda por internet,
     las descarga de Open Food Facts, donde se publican bajo
     <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.
+  </p>
+  <p>
+    Fuente de la información de medicamentos: Agencia Española de Medicamentos y Productos
+    Sanitarios, <a href="https://www.aemps.gob.es">www.aemps.gob.es</a>. Se descargan con
+    <code>descargar_medicamentos.py</code> (una petición cada vez, con pausa) y se meten en la base
+    con <code>construir_medicamentos.py</code>, sin cambiar ningún texto.
   </p>
 </main>
 </body>
