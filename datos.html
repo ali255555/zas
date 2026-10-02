@@ -30,28 +30,36 @@
   </div>
 
   <h2>Qué contiene</h2>
+  <p>Actualizada el 2 de octubre de 2026 (versión 16 de la base).</p>
   <table>
-    <tr><th>Tabla</th><th>Contenido</th></tr>
-    <tr><td><code>producto</code></td><td>Productos con España entre sus países de venta: código, nombre, marca, cantidad, ingredientes, alérgenos, trazas, aditivos, categorías, etiquetas y análisis de ingredientes</td></tr>
-    <tr><td><code>aditivo</code></td><td>Números E con nombre, función, origen vegano/vegetariano y referencia de la EFSA cuando existe</td></tr>
-    <tr><td><code>alergeno</code></td><td>Alérgenos con sus sinónimos en español</td></tr>
-    <tr><td><code>marcador</code></td><td>Términos usados para reconocer ingredientes en una lista</td></tr>
-    <tr><td><code>meta</code></td><td>Versión de los datos, licencia y atribución</td></tr>
+    <tr><th>Tabla</th><th>Contenido</th><th>De dónde sale</th></tr>
+    <tr><td><code>producto</code></td><td>Productos con España entre sus países de venta: código, nombre, marca, cantidad, ingredientes, alérgenos, trazas, aditivos, categorías, etiquetas, análisis de ingredientes, valores nutricionales por 100 g y los demás nutrientes que declara el producto (minerales, vitaminas, cafeína, pH…)</td><td>Open Food Facts (ODbL 1.0)</td></tr>
+    <tr><td><code>aditivo</code></td><td>Números E con nombre, función, origen vegano/vegetariano, referencia de la EFSA cuando existe y de qué está hecho cada uno</td><td>Open Food Facts (ODbL 1.0); descripciones del Reglamento (UE) 231/2012 (EUR-Lex, reutilización según la Decisión 2011/833/UE); riesgos según EFSA e IARC</td></tr>
+    <tr><td><code>alergeno</code></td><td>Alérgenos con sus sinónimos en español</td><td>Open Food Facts (ODbL 1.0); Reglamento (UE) 1169/2011</td></tr>
+    <tr><td><code>marcador</code></td><td>Términos usados para reconocer ingredientes en una lista</td><td>Taxonomías de Open Food Facts (ODbL 1.0)</td></tr>
+    <tr><td><code>ingrediente</code></td><td>Composición de los ingredientes de las recetas</td><td>USDA FoodData Central (dominio público)</td></tr>
+    <tr><td><code>receta</code></td><td>Recetas propias y del recetario libre</td><td>Propias; Wikibooks (CC BY-SA 3.0)</td></tr>
+    <tr><td><code>restriccion</code>, <code>advertencia</code></td><td>Restricciones que se pueden marcar y advertencias obligatorias</td><td>Reglamentos (UE) 1169/2011 y (CE) 1333/2008; taxonomías de Open Food Facts</td></tr>
+    <tr><td><code>ejercicio</code></td><td>Ejercicios con sus fotos</td><td>free-exercise-db (dominio público, Unlicense)</td></tr>
+    <tr><td><code>meta</code></td><td>Versión de los datos, licencia y atribución</td><td>—</td></tr>
   </table>
 
   <h2>Qué se ha cambiado respecto al original</h2>
   <p>
-    Se ha filtrado por país (España), se han conservado solo las columnas que usa la aplicación, se
-    han normalizado las etiquetas de aditivos al formato <code>e120</code> y se han descartado los
-    productos que no tienen ni nombre, ni ingredientes, ni alérgenos, ni aditivos. No se ha añadido,
-    estimado ni corregido ningún valor.
+    De Open Food Facts se ha filtrado por país (España), se han conservado solo las columnas que usa
+    la aplicación, se han normalizado las etiquetas de aditivos al formato <code>e120</code> y se han
+    descartado los productos que no tienen ni nombre, ni ingredientes, ni alérgenos, ni aditivos. No
+    se ha añadido, estimado ni corregido ningún valor de ningún producto.
   </p>
 
-  <h2>Descarga</h2>
+  <h2>Cómo se construye (cláusula 4.6 de la ODbL)</h2>
   <p>
-    El fichero <code>catalogo.db</code> (SQLite) y el programa que lo construye se publican en el
-    repositorio del proyecto. La versión empaquetada en cada release de la aplicación es la misma que
-    se publica aquí.
+    El método completo con el que se hacen esos cambios —los programas que descargan, filtran y
+    construyen <code>catalogo.db</code>— se publica aquí mismo, en la carpeta
+    <a href="datos/">datos/</a>. Con ellos y el volcado público de Open Food Facts se obtiene la
+    misma base que va dentro de cada versión de la aplicación. Si quieres el fichero
+    <code>catalogo.db</code> tal cual, escribe a
+    <a href="mailto:alitalaint12@gmail.com">alitalaint12@gmail.com</a> y te lo enviamos.
   </p>
 
   <h2>Atribución</h2>
@@ -59,7 +67,9 @@
     Datos de Open Food Facts (<a href="https://openfoodfacts.org">openfoodfacts.org</a>), bajo
     licencia ODbL 1.0. Los contenidos individuales están disponibles bajo la
     <a href="https://opendatacommons.org/licenses/dbcl/1-0/">Database Contents License</a>.
-    Esta aplicación no incluye fotografías de producto.
+    La aplicación no lleva fotografías de producto dentro; si activas la búsqueda por internet,
+    las descarga de Open Food Facts, donde se publican bajo
+    <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.
   </p>
 </main>
 </body>

@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cómo se construye la base · Zas</title>
+<style>
+  :root { color-scheme: light; }
+  body { margin:0; background:#FAF8F5; color:#1B1A18; font:17px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+  main { max-width:44rem; margin:0 auto; padding:3rem 1.5rem 5rem; }
+  h1 { font-size:1.9rem; line-height:1.2; margin:0 0 1rem; }
+  li { margin:.3rem 0; }
+  a { color:#1F6F5C; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Cómo se construye la base de datos de Zas</h1>
+  <p>Los programas que hacen los cambios sobre Open Food Facts (cláusula 4.6 de la ODbL), en el orden en que se ejecutan:</p>
+  <ol>
+    <li><a href="filtrar_espana.py">filtrar_espana.py</a>: del volcado público de Open Food Facts, los productos vendidos en España.</li>
+    <li><a href="descargar_aditivos_reglamento.py">descargar_aditivos_reglamento.py</a>: de qué está hecho cada aditivo, según el Reglamento (UE) 231/2012.</li>
+    <li><a href="construir_base.py">construir_base.py</a>: construye <code>catalogo.db</code> (productos, aditivos, alérgenos y marcadores).</li>
+    <li><a href="construir_cocina.py">construir_cocina.py</a>: ingredientes, recetas, restricciones y advertencias.</li>
+    <li><a href="alternativas.py">alternativas.py</a>: las alternativas de la misma categoría.</li>
+  </ol>
+  <p>El resto de ficheros de esta carpeta son módulos que usan esos programas. <a href="../datos.html">Volver</a>.</p>
+</main>
+</body>
+</html>
