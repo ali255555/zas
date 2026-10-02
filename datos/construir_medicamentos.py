@@ -123,14 +123,32 @@ def del_prospecto(ficha):
     son…», hasta «Aspecto del producto». Literal, partido por elementos.
     """
     bruto = ficha.get("prospecto") or ""
-    texto = " ".join(lineas_del_html(bruto)) if "<" in bruto else re.sub(r"\s+", " ", bruto)
+    if "<" in bruto:
+        texto = " ".join(lineas_del_html(bruto))
+    else:
+        # Del PDF: las palabras partidas a final de línea llegan como «clo - ruro».
+        texto = re.sub(r"\s+", " ", bruto)
+        texto = re.sub(r"(?<=[a-záéíóúñ]) - (?=[a-záéíóúñ])", "", texto)
     m = re.search(
-        r"(?i)(los demás componentes|los otros componentes|los excipientes)[^:]{0,80}:?(.*?)(aspecto del producto|aspecto de |contenido del envase|titular de la autorización|$)",
+        r"(?i)(los demás componentes|los otros componentes|el otro componente|los demás ingredientes|"
+        r"los excipientes)[^:.]{0,80}?(:|\bes\b|\bson\b)(.*?)"
+        r"(aspecto del producto|aspecto de |contenido del envase|forma farmac|titular de la autorización|$)",
         texto,
     )
     if not m:
+        # «Excipientes:» a secas, como encabezado de una lista.
+        m = re.search(r"(?i)\bexcipientes\s*:()()(.*?)(forma farmac|aspecto|contenido del envase|\.\s+[A-ZÁÉÍÓÚ]{4,}|$)", texto)
+    if not m:
         return []
-    return partir_lista(m.group(2))[:60]
+    bloque = m.group(3)
+    # Si lo que se ha cogido no parece una lista (demasiado largo), no se
+    # inventa nada: mejor «no se pudo leer» que una lista equivocada.
+    if len(bloque) > 700:
+        return []
+    lineas = partir_lista(bloque)
+    if not lineas or any(len(l) > 120 for l in lineas):
+        return []
+    return lineas[:60]
 
 
 def excipientes(ficha):
@@ -150,7 +168,13 @@ def excipientes(ficha):
     # cada elemento de la lista («Sacarina sódica ,»).
     lineas = [l for l in lineas if not re.match(r"(?i)^6\.1\.?\s", l)]
     lineas = [re.sub(r"^[-•·*]\s*", "", l).strip().rstrip(" ,;.").strip() for l in lineas]
-    lineas = [l for l in lineas if l]
+    # Un párrafo con toda la lista separada por comas se parte en elementos,
+    # sin tocar lo que va entre paréntesis: así cada aviso señala solo el
+    # excipiente exacto.
+    partidas = []
+    for l in lineas:
+        partidas += partir_lista(l) if len(l) > 60 and "," in l else [l]
+    lineas = [l for l in partidas if l]
     return "\n".join(lineas) if lineas else None
 
 

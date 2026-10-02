@@ -67,7 +67,7 @@ RESTRICCIONES = [
     ("lactosa", "Intolerancias", "Lactosa", "Leche y derivados con lactosa", "ALERGENO", ["en:milk"], UE_1169, AVISO_ALERGIA),
     ("fenilcetonuria", "Intolerancias", "Fenilalanina (fenilcetonuria)", "Aspartamo: E951 y E962", "ADITIVO",
      ["aditivo:e951", "aditivo:e962"], UE_1169_III, AVISO_ALERGIA),
-    ("polioles", "Intolerancias", "Polialcoholes", "Sorbitol, manitol, maltitol, xilitol. Pueden sentar mal", "ADITIVO",
+    ("polioles", "Intolerancias", "Polioles", "Edulcorantes (sorbitol, manitol, maltitol, xilitol). No son alcohol; en exceso, laxantes", "ADITIVO",
      ["aditivo:e420", "aditivo:e421", "aditivo:e953", "aditivo:e965", "aditivo:e966", "aditivo:e967", "aditivo:e968"],
      UE_1169_III, None),
     ("marisco", "Intolerancias", "Marisco", "Crustáceos y moluscos", "ALERGENO",
@@ -151,7 +151,7 @@ PALABRAS = {
     "sin-gelatina": "Lleva gelatina",
     "lactosa": "Lleva lactosa",
     "fenilcetonuria": "Lleva fenilalanina",
-    "polioles": "Lleva polialcoholes",
+    "polioles": "Lleva polioles",
     "marisco": "Lleva marisco",
     "aditivos-animales": "Aditivo animal",
     "e120": "Lleva E120",
@@ -209,6 +209,10 @@ MARCADORES_CASTELLANO = {
     "sin:alcohol": [
         "coñac", "aguardiente", "orujo", "anis", "pacharan", "cava", "moscatel",
         "vino de jerez", "vino dulce", "amaretto", "kirsch", "curacao",
+        # Añadidos el 2-oct-2026 (orden de Ali: todos los alcoholes de beber).
+        "vodka", "whisky", "whiskey", "bourbon", "grappa", "calvados", "mirin", "tequila",
+        "mezcal", "wine", "beer", "rum", "liqueur", "vermouth", "sherry", "cider",
+        "brandy de jerez", "licor de hierbas", "sangria",
     ],
     # Para quien evita todo lo animal: los nombres de cocina más habituales.
     "dieta:vegano": [
