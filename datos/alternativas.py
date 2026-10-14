@@ -25,7 +25,7 @@ import sys
 import time
 
 DESTINO = pathlib.Path(__file__).resolve().parent.parent / "app/src/main/assets/alternativas.json"
-AGENTE = "Zas/0.5 (escaner de alimentos sin animo de lucro; https://openfoodfacts.org)"
+AGENTE = "Skanok/0.5 (escaner de alimentos sin animo de lucro; https://openfoodfacts.org)"
 CAMPOS = "code,product_name,brands,nutriscore_grade,nova_group,additives_n,categories_tags"
 
 # Las categorías de un supermercado español. Es la lista de lo que se compra,

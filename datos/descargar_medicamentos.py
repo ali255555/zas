@@ -32,7 +32,7 @@ BASE = "https://cima.aemps.es/cima/rest/"
 AQUI = os.path.dirname(os.path.abspath(__file__))
 CACHE = os.path.join(AQUI, "cima")
 PAUSA = 0.4  # segundos entre peticiones: nunca más de una a la vez (≈2 por segundo)
-AGENTE = "Zas/1.0 (app de etiquetas; datos AEMPS reutilizados citando la fuente)"
+AGENTE = "Skanok/1.0 (app de etiquetas; datos AEMPS reutilizados citando la fuente)"
 
 _ultima = 0.0
 
